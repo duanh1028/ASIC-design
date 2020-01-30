@@ -17,26 +17,55 @@ module comparator
 	output wire eq
 );
 
-	wire gte;
-	wire lte;
+	//wire gte;
+	//wire lte;
+	reg gt_r, lt_r, eq_r;
+	assign gt = gt_r;
+	assign lt = lt_r;
+	assign eq = eq_r;
+	//assign gte = GTE;
+        //assign lte = LTE;	
 
-	always @ (a, b) begin: COM
-		if (not (a > b))
-			lte <= 1'b1;
-		if (!(b > a)
-			assign gte = 1'b1;
-		
-		if (not (lte == 1'b1))
+	always @ (a, b) begin
+		if(a < b) begin
+			gt_r = 1'b0;
+			lt_r = 1'b1;
+			eq_r = 1'b0;
+		end
+		else if(a == b) begin
+			gt_r = 1'b0;
+			lt_r = 1'b0;
+			eq_r = 1'b1;
+		end
+		else begin
+			gt_r = 1'b1;
+			lt_r = 1'b0;
+			eq_r = 1'b0;
+		end
+
+/*
+		if (!(a > b))
+			LTE = 1'b1;
+		else
+			LTE = 1'B0;
+		if (!(b > a))
+			GTE = 1'b1;
+		else
+			GTE = 1'b0;
+		if (!(lte == 1'b1)) begin
 			GT = 1'b1;
-			LT == 1'b0;
+			LT = 1'b0;
 			EQ = 1'b0;
-		else if (not (gte == 1))
+		end
+		else if (!(gte == 1)) begin
 			GT = 1'b0;
 			LT = 1'b1;
 			EQ = 1'b0;
-		else
+		end
+		else begin
 			GT = 1'b0;
 			LT = 1'b0;
 			EQ = 1'b1;
+		end */
 	end
-endmodule;
+endmodule
