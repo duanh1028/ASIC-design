@@ -48,7 +48,6 @@ DC_SHELL		:= dc_shell-t
 
 ##############################################################################
 # Designate that all "intermediate" files created during chaing make rules
-# should not be deleted (otherwise automatically compiled or synthesized files
 # will be automatically deleted by make after it's done with them).
 ##############################################################################
 .SECONDARY:
@@ -268,8 +267,8 @@ tbsim_%_mapped: $(M_WORK_LIB)/% $(M_WORK_LIB)/tb_%
 
 # Set the default value of the clock name and clock period to an empty string so that clock timing will
 # only be activated in the SYN_CMDS definition if they were overwritten at invocation
-CLOCK_NAME 		:=
-CLOCK_PERIOD	:=
+CLOCK_NAME 		:= clk
+CLOCK_PERIOD	:= 10
 
 # Set the default value of the source files for sub modules to be an empty string so that
 # it will only be used if overwritten at invocation

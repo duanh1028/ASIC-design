@@ -57,7 +57,7 @@ module tb_sync_high();
 
   // Task to cleanly and consistently check DUT output values
   task check_output;
-    input logic  expected_value;
+    input logic expected_value;
     input string check_tag;
   begin
     if(expected_value == tb_sync_out) begin // Check passed
