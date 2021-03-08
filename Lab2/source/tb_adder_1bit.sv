@@ -6,7 +6,7 @@
 module tb_adder_1bit
 ();
 	// Define local parameters used by the test bench
-	localparam NUM_INPUT_BITS			= 1;
+	localparam NUM_INPUT_BITS			= 4;
 	localparam NUM_OUTPUT_BITS		= NUM_INPUT_BITS + 1;
 	localparam MAX_OUTPUT_BIT			= NUM_OUTPUT_BITS - 1;
 	localparam NUM_TEST_BITS 			= (NUM_INPUT_BITS * 2) + 1;
@@ -21,10 +21,10 @@ module tb_adder_1bit
 	localparam TEST_DELAY					= 10;
 	
 	// Declare Design Under Test (DUT) portmap signals
-	wire	tb_a;
-	wire	tb_b;
+	wire	[3:0] tb_a;
+	wire	[3:0] tb_b;
 	wire	tb_carry_in;
-	wire	tb_sum;
+	wire	[3:0] tb_sum;
 	wire	tb_carry_out;
 	
 	// Declare test bench signals
